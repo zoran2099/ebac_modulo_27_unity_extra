@@ -23,8 +23,9 @@ public static class EbacUtils
     
     public static T GetRandomButNotSame<T>(this List<T> list, T unique)
     {
-        if(list == null) return default(T);
-        if(list.Count == 1) return unique;
+        if(list == null || list.Count == 1) return default(T);
+        
+        list.Remove(unique);
 
         int index = Random.Range(0, list.Count);
         return list[index];

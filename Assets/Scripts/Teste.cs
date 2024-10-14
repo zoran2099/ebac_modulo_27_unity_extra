@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,8 +25,25 @@ public class Teste : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    [Button]
+    public void TestRandom()
+    {
         num.GetRandom();
         Debug.Log("Valor final "+num.GetRandom());
-        
+
+    }
+
+    [SerializeField]
+    private int arg = 5;
+
+    [Button]
+    public void TestRandomButNotSame()
+    {
+        var result = num.GetRandomButNotSame(arg);
+        Debug.Log("Valor final "+ result);
+
     }
 }
